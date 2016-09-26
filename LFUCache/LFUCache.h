@@ -40,6 +40,10 @@ public:
 
     }
 
+    ~LFUCache(){
+        delete[] _entries;
+    }
+
     virtual V get(K key) override {
         typename std::map<K,LFUCacheItem<K,V>*>::iterator it = _cacheEntries.find(key);
         if (it != _cacheEntries.end()) {
