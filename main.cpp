@@ -17,15 +17,14 @@ void testLRUPutsAndGets() {
 }
 
 void testLFUPutsAndGets() {
-    cout<<"Begin " << __FUNCTION__<<" tests"<<endl;
+    cout<<"BEGIN " << __FUNCTION__<<" tests"<<endl;
     LFUCache<int,int> *fiveEntries = new LFUCache<int,int>(5);
     for (int i=0;i<5;i++)
         fiveEntries->put(i,i+1);
     for (int i=0;i<5;i++) {
-        cout<<"Get "<<i<<" is "<< fiveEntries->get(i)<<endl;
-        //assert(fiveEntries->get(i) == i + 1);
+        assert(fiveEntries->get(i) == i + 1);
     }
-    cout<<"End: "<<__FUNCTION__<<" tests"<<endl;
+    cout<<"END: "<<__FUNCTION__<<" tests"<<endl;
 }
 
 
