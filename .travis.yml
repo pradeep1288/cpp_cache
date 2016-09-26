@@ -36,7 +36,7 @@ install:
 script:
   - mkdir build
   - cd build
-  - cmake .. && make
+  - cmake .. && make && ./cpp_cache
 
 after_success:
     - cd CMakeFiles/cpp_cache.dir
