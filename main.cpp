@@ -27,6 +27,21 @@ void testLFUPutsAndGets() {
     cout<<"END: "<<__FUNCTION__<<" tests"<<endl;
 }
 
+void testLFUPutsAndEviction() {
+    cout<<"BEGIN " << __FUNCTION__<<" tests"<<endl;
+    LFUCache<int,int> *fiveEntries = new LFUCache<int,int>(5);
+    for (int i=0;i<5;i++)
+        fiveEntries->put(i,i+1);
+    for (int i=1;i<5;i++) {
+        assert(fiveEntries->get(i) == i+1);
+        assert(fiveEntries->get(i) == i+1);
+    }
+
+    fiveEntries->put(8,9);
+    assert(fiveEntries->get(8) == 9);
+    assert(fiveEntries->get(0) == 0);
+    cout<<"END: "<<__FUNCTION__<<" tests"<<endl;
+}
 
 void testLRUPutAndRemove() {
     cout<<"BEGIN "<< __FUNCTION__<< " tests"<<endl;
@@ -46,5 +61,6 @@ int main() {
     testLRUPutsAndGets();
     testLRUPutAndRemove();
     testLFUPutsAndGets();
+    testLFUPutsAndEviction();
     return 0;
 }

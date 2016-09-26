@@ -65,15 +65,15 @@ public:
             if (_freeEntries.empty()) {
                 entry = _lfuList.top();
                 _lfuList.pop();
-
+                _cacheEntries.erase(entry->key);
             } else {
                 entry = _freeEntries.back();
                 _freeEntries.pop_back();
-                _cacheEntries[key] = entry;
             }
             entry->key = key;
             entry->value = value;
             entry->numHits = 1;
+            _cacheEntries[key] = entry;
             _lfuList.push(entry);
         }
     }
