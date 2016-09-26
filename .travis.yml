@@ -3,7 +3,7 @@ language: cpp
 # Compiler selection
 compiler:
   - clang
-  - gcc
+  - g++
 # Build steps
 script:
   - mkdir build
