@@ -93,6 +93,19 @@ public:
             }
         }
     }
+
+    void remove(K key) {
+        typename std::map<K, LRUCacheItem<K,V>*>::iterator it = _cacheEntries.find(key);
+        if (it != _cacheEntries.end()) {
+            LRUCacheItem<K,V> *entry = it->second;
+            detach(entry);
+            entry->next = NULL;
+            entry->prev = NULL;
+            _freeEntries.push_back(entry);
+            _cacheEntries.erase(key);
+        }
+        return;
+    }
 };
 
 
