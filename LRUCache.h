@@ -7,6 +7,7 @@
 
 #include <map>
 #include <vector>
+#include "Cache.h"
 
 template <class K, class V>
 struct LRUCacheItem {
@@ -17,7 +18,7 @@ struct LRUCacheItem {
 };
 
 template <class K, class V>
-class LRUCache {
+class LRUCache : Cache<K,V>{
 private:
     std::map<K, LRUCacheItem<K,V>*> _cacheEntries;
     LRUCacheItem<K,V>* _head;
