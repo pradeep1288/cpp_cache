@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LRUCache.h"
+#include "LRUCache/LRUCache.h"
 #include <cassert>
 
 using namespace std;

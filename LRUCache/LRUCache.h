@@ -7,7 +7,7 @@
 
 #include <map>
 #include <vector>
-#include "Cache.h"
+#include "../Cache.h"
 
 template <class K, class V>
 struct LRUCacheItem {

@@ -5,7 +5,7 @@
 #ifndef CPP_CACHE_LFUCACHE_H
 #define CPP_CACHE_LFUCACHE_H
 
-#include "Cache.h"
+#include "../Cache.h"
 
 template <class K, class V>
 class LFUCache: Cache<K,V> {
