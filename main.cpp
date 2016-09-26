@@ -1,16 +1,21 @@
 #include <iostream>
 #include "LRUCache.h"
+#include <cassert>
 
 using namespace std;
 
+
+void testPutsAndGets() {
+    cout<<"Begin testPutsAngGets tests"<<endl;
+    LRUCache<int,int> *fiveEntries = new LRUCache<int,int>(5);
+    for (int i=0;i<5;i++)
+        fiveEntries->put(i,i+1);
+    for (int i=0;i<5;i++)
+        assert(fiveEntries->get(i) == i+1);
+    cout<<"End testPutsAngGets tests"<<endl;
+}
+
 int main() {
-    LRUCache<int,int> *_intCache = new LRUCache<int,int>(5);
-    _intCache->put(1,1);
-    _intCache->put(2,2);
-    _intCache->put(3,2);
-    _intCache->put(4,2);
-    _intCache->put(5,2);
-    _intCache->put(6,2);
-    cout<< "Cache entry: " << _intCache->get(1)<< endl;
+    testPutsAndGets();
     return 0;
 }
