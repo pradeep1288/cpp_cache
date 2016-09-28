@@ -8,7 +8,7 @@ using namespace std;
 
 void testOneSizeLRUCache() {
     cout<<"BEGIN "<<__FUNCTION__<<" tests"<<endl;
-    LRUCache<int, int> *oneEntry = new LRUCache(1);
+    LRUCache<int, int> *oneEntry = new LRUCache<int, int>(1);
     for (int i; i<10000;i++) {
         oneEntry->put(i,i+1);
     }
