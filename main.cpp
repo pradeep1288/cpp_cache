@@ -6,6 +6,16 @@
 using namespace std;
 
 
+void testOneSizeLRUCache() {
+    cout<<"BEGIN "<<__FUNCTION__<<" tests"<<endl;
+    LRUCache<int, int> *oneEntry = new LRUCache(1);
+    for (int i; i<10000;i++) {
+        oneEntry->put(i,i+1);
+    }
+    assert(oneEntry->get(9999) == 10000);
+    cout<<"END "<<__FUNCTION__<<" tests"<<endl;
+}
+
 void testLRUPutsAndGets() {
     cout<<"BEGIN "<< __FUNCTION__<< " tests"<<endl;
     LRUCache<int,int> *fiveEntries = new LRUCache<int,int>(5);
@@ -62,5 +72,6 @@ int main() {
     testLRUPutAndRemove();
     testLFUPutsAndGets();
     testLFUPutsAndEviction();
+    testOneSizeLRUCache();
     return 0;
 }
