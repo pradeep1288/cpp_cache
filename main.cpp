@@ -9,7 +9,7 @@ using namespace std;
 void testOneSizeLRUCache() {
     cout<<"BEGIN "<<__FUNCTION__<<" tests"<<endl;
     LRUCache<int, int> *oneEntry = new LRUCache<int, int>(1);
-    for (int i; i<10000;i++) {
+    for (int i=0; i<10000;i++) {
         oneEntry->put(i,i+1);
     }
     assert(oneEntry->get(9999) == 10000);
@@ -19,7 +19,7 @@ void testOneSizeLRUCache() {
 void testOneSizeLFUCache() {
     cout<<"BEGIN "<<__FUNCTION__<<" tests"<<endl;
     LFUCache<int, int> *oneEntry = new LFUCache<int, int>(1);
-    for (int i; i<10000;i++) {
+    for (int i=0; i<10000;i++) {
         oneEntry->put(i,i+1);
     }
     assert(oneEntry->get(9999) == 10000);

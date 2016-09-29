@@ -76,22 +76,19 @@ public:
             attach(entry);
         }
         else {
+            LRUCacheItem<K,V> *node = NULL;
             if (_freeEntries.empty()) {
-                LRUCacheItem<K,V> *node = _tail->prev;
+                node = _tail->prev;
                 detach(node);
-                _cacheEntries.erase(key);
-                node->key = key;
-                node->val = value;
-                _cacheEntries[key] = node;
-                attach(node);
+                _cacheEntries.erase(node->key);
             } else {
-                LRUCacheItem<K,V> *node = _freeEntries.back();
+                node = _freeEntries.back();
                 _freeEntries.pop_back();
-                node->key = key;
-                node->val = value;
-                _cacheEntries[key] = node;
-                attach(node);
             }
+            node->key = key;
+            node->val = value;
+            _cacheEntries[key] = node;
+            attach(node);
         }
     }
 
